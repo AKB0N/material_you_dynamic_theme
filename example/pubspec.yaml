@@ -1,0 +1,42 @@
+name: test
+
+description:
+  This is the library of AkbonIcons Dashboard.T
+  It is only used for development purposes.
+  Use the sample implementation for making icon packs.
+  (Akb onIcons Dashboard is an icon pack dashboard.
+  which follow material design guidelines.
+  AkbonIcons is easy to use and has a lot of customization.)
+
+#version: 10.2.0+56
+version: 10.7.0+106
+
+environment:
+  sdk: '>=3.5.4 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  material_you_dynamic_theme:
+    path: ../
+  flutter_localizations:
+    sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
+
+
+
+
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+  generate: true
+  uses-material-design: true
+
+publish_to: none
