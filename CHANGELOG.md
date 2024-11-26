@@ -1,3 +1,7 @@
+## 0.0.3
+* All of the package dependencies are supported in the latest version.
+
+
 ## 0.0.2
 * Fixes INFO: `renderView` is deprecated and shouldn't be used. Consider using `RendererBinding.renderViews` instead as the binding may manage multiple RenderViews. This feature was deprecated after v3.10.0-12.0.pre.
 * All of the package dependencies are supported in the latest version.
