@@ -1,15 +1,8 @@
 name: test
 
-description:
-  This is the library of AkbonIcons Dashboard.T
-  It is only used for development purposes.
-  Use the sample implementation for making icon packs.
-  (Akb onIcons Dashboard is an icon pack dashboard.
-  which follow material design guidelines.
-  AkbonIcons is easy to use and has a lot of customization.)
+description: Example
 
-#version: 10.2.0+56
-version: 10.7.0+106
+version: 0.0.1
 
 environment:
   sdk: '>=3.5.4 <4.0.0'

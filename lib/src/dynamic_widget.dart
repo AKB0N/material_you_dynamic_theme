@@ -52,9 +52,7 @@ Future<void> runAppDynamic(
   final packageInfo = await PackageInfo.fromPlatform();
   final appColorScheme =
       await loadColorScheme(fallbackSeedColor: settingsTheme.seedColor);
-  WidgetsFlutterBinding.ensureInitialized()
-      .renderView
-      .automaticSystemUiAdjustment = false;
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
     MultiProvider(
       providers: [
