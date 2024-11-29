@@ -57,30 +57,30 @@ The `ColorScheme` object offers a variety of properties representing different c
 
 ```dart
 ElevatedButton(
-  onPressed: () { /* Your button action */ }
-  style: ElevatedButton.styleFrom(
-    backgroundColor: Theme.of(context).colorScheme.primary,
-  ),
-  child: Text(
-    'Primary Button',
-    style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
-  ),
+onPressed: () { /* Your button action */ }
+style: ElevatedButton.styleFrom(
+backgroundColor: Theme.of(context).colorScheme.primary,
+),
+child: Text(
+'Primary Button',
+style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
+),
 ),
 
 Text(
-  'Background Text',
-  style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+'Background Text',
+style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
 ),
 
 Container(
-  color: Theme.of(context).colorScheme.surface,
-  child: Padding(
-    padding: const EdgeInsets.all(8.0),
-    child: Text(
-      'Surface Text',
-      style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
-    ),
-  ),
+color: Theme.of(context).colorScheme.surface,
+child: Padding(
+padding: const EdgeInsets.all(8.0),
+child: Text(
+'Surface Text',
+style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
+),
+),
 ),
 ```
 
@@ -94,6 +94,7 @@ A simple switch to toggle between light dark & system themes.
 
 
 <img src="screenshots/ThemeSwitchWidget.gif" alt="drawing" width="400"/>
+
 ```dart
 class test extends StatelessWidget {
   const test({super.key});
@@ -114,6 +115,7 @@ class test extends StatelessWidget {
 **Using ChangeThemeChoiceListTileWidget:**
 
 <img src="screenshots/ThemeChoiceListTileWidget.gif" alt="drawing" width="400"/>
+
 ```dart
 class test extends StatelessWidget {
   const test({super.key});
