@@ -5,6 +5,7 @@ A Flutter package that dynamically changes the app's theme based on the dominant
 **Note:** This package currently focuses on Android.
 
 
+
 ## How to use it?
 **1.  Add the package to pubspec.yaml dependency:**
 
@@ -29,6 +30,8 @@ void main() {
   );
 }
 ```
+
+<img src="screenshots/screen.gif" alt="drawing" width="200"/>
 
 ## Using the Dynamic Color Scheme
 
@@ -89,7 +92,8 @@ A simple switch to toggle between light dark & system themes.
 
 **Using ChangeThemeSwitchWidget:**
 
-![](screenshots/ThemeSwitchWidget.gif?raw=true "")
+
+<img src="screenshots/ThemeSwitchWidget.gif" alt="drawing" width="400"/>
 ```dart
 class test extends StatelessWidget {
   const test({super.key});
@@ -109,7 +113,7 @@ class test extends StatelessWidget {
 
 **Using ChangeThemeChoiceListTileWidget:**
 
-![](screenshots/ThemeChoiceListTileWidget.gif?raw=true "")
+<img src="screenshots/ThemeChoiceListTileWidget.gif" alt="drawing" width="400"/>
 ```dart
 class test extends StatelessWidget {
   const test({super.key});
