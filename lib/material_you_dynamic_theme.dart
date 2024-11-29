@@ -14,5 +14,5 @@
 
 export 'src/dynamic_scheme.dart';
 export 'src/dynamic_wrapper.dart';
-export 'src/settings.dart';
+export 'src/theme_settings.dart';
 export 'src/dynamic_widget.dart';

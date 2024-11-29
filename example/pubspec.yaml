@@ -2,7 +2,7 @@ name: test
 
 description: Example
 
-version: 0.0.3
+version: 0.0.4
 
 environment:
   sdk: '>=3.5.4 <4.0.0'

@@ -6,7 +6,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runAppDynamic(
     home: MyHomePage(
-      title: 'M3DC',
+      title: 'MYDT',
     ),
     debugShowCheckedModeBanner: false,
   );
@@ -25,6 +25,8 @@ class _MyHomePageState extends State<MyHomePage>
     with RestorationMixin<MyHomePage> {
   final _counter = RestorableInt(0);
   final _page = RestorableInt(0);
+  final _scrollOffset = RestorableDouble(0);
+  final _scrollController = ScrollController();
 
   @override
   String? get restorationId => 'home_page';
@@ -34,6 +36,7 @@ class _MyHomePageState extends State<MyHomePage>
       RestorationBucket? oldBucket, bool initialRestore) async {
     registerForRestoration(_counter, '_counter');
     registerForRestoration(_page, '_page');
+    registerForRestoration(_scrollOffset, 'scroll_offset_page');
   }
 
   @override
@@ -45,7 +48,18 @@ class _MyHomePageState extends State<MyHomePage>
   void dispose() {
     _counter.dispose();
     _page.dispose();
+    _scrollController.dispose();
+    _scrollOffset.dispose();
     super.dispose();
+  }
+
+  @override
+  void initState() {
+    _scrollController
+        .addListener(() => _scrollOffset.value = _scrollController.offset);
+    WidgetsBinding.instance.addPostFrameCallback(
+        (_) => _scrollController.jumpTo(_scrollOffset.value));
+    super.initState();
   }
 
   void _incrementCounter() {
@@ -57,24 +71,42 @@ class _MyHomePageState extends State<MyHomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title!),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Card(),
-            const Text(
-              'You have pushed the button this many times:',
+      body: CustomScrollView(
+        controller: _scrollController,
+        slivers: [
+          SliverAppBar(
+            expandedHeight: 200,
+            floating: false,
+            pinned: true,
+            backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(widget.title!),
             ),
-            Text(
-              '${_counter.value}',
-              style: Theme.of(context).textTheme.headlineMedium,
+            actions: [ChangeThemeSwitchWidget()],
+          ),
+          SliverFillRemaining(
+            child: ListView(
+              physics: ScrollPhysics(parent: NeverScrollableScrollPhysics()),
+              children: <Widget>[
+                title('Switch Example', hideDivider: true),
+                ListTile(
+                  title: Text('Dark Mode'),
+                  trailing: ChangeThemeSwitchWidget(),
+                ),
+                title('Choice List Tile Example'),
+                ChangeThemeChoiceListTileWidget(),
+                title('Restore State Example'),
+                ListTile(
+                  title: Text('You have pushed the button this many times:'),
+                  trailing: Text(
+                    '${_counter.value}',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
+          )
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
@@ -122,4 +154,38 @@ class _MyHomePageState extends State<MyHomePage>
       ),
     );
   }
+
+  Widget title(
+    text, {
+    double height = 30,
+    bool notTitle = false,
+    bool hideDivider = false,
+  }) =>
+      Align(
+        alignment: Alignment.centerLeft,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: height),
+            notTitle
+                ? SizedBox()
+                : hideDivider
+                    ? SizedBox()
+                    : Divider(
+                        color: Theme.of(context).colorScheme.inversePrimary),
+            notTitle ? SizedBox() : SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Text(
+                text,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
 }

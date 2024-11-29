@@ -48,15 +48,15 @@ Future<void> runAppDynamic(
     ScrollBehavior? scrollBehavior,
     bool useInheritedMediaQuery = false,
     AnimationStyle? themeAnimationStyle}) async {
-  final settingsTheme = await getSettings();
+  final themeSettings = await getThemeSettings();
   final packageInfo = await PackageInfo.fromPlatform();
   final appColorScheme =
-      await loadColorScheme(fallbackSeedColor: settingsTheme.seedColor);
+      await loadColorScheme(fallbackSeedColor: themeSettings.seedColor);
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider<SettingsModel>.value(value: settingsTheme),
+        ChangeNotifierProvider<ThemeSettingsModel>.value(value: themeSettings),
         Provider<BrightnessGetColorScheme>.value(value: appColorScheme),
         Provider<PackageInfo>.value(value: packageInfo),
       ],
@@ -94,7 +94,7 @@ Future<void> runAppDynamic(
         themeAnimationDuration: themeAnimationDuration,
         themeAnimationStyle: themeAnimationStyle,
         title: title,
-        useInheritedMediaQuery: useInheritedMediaQuery,
+        // useInheritedMediaQuery: useInheritedMediaQuery,
       ),
     ),
   );
@@ -252,7 +252,7 @@ class AppDynamic extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final settings = context.watch<SettingsModel>();
+    final themeSettings = context.watch<ThemeSettingsModel>();
     return BrightnessGetColorSchemeBuilder(
         builder: (BrightnessGetColorScheme colorScheme) => MaterialApp(
               actions: actions,
@@ -287,7 +287,7 @@ class AppDynamic extends StatelessWidget {
               themeAnimationDuration: themeAnimationDuration,
               themeAnimationStyle: themeAnimationStyle,
               title: title,
-              useInheritedMediaQuery: useInheritedMediaQuery,
+              // useInheritedMediaQuery: useInheritedMediaQuery,
               theme: ThemeData(
                 colorScheme: colorScheme.light,
                 useMaterial3: true,
@@ -296,7 +296,7 @@ class AppDynamic extends StatelessWidget {
                 colorScheme: colorScheme.dark,
                 useMaterial3: true,
               ),
-              themeMode: settings.themeMode,
+              themeMode: themeSettings.themeMode,
               restorationScopeId: 'app',
               home: home,
               // builder: (context, child) => child ?? const Offstage(),
