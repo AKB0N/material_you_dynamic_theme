@@ -11,7 +11,7 @@ A Flutter package that dynamically changes the app's theme based on the dominant
 
 ```yaml
 dependencies:
-  material_you_dynamic_theme: ^0.0.4
+  material_you_dynamic_theme: ^0.0.5
 ```
 
 **2. Import package:**
@@ -31,7 +31,7 @@ void main() {
 }
 ```
 
-<img src="screenshots/screen.gif" alt="drawing" width="200"/>
+![Screen Record](screenshots/screen.gif)
 
 ## Using the Dynamic Color Scheme
 
@@ -56,32 +56,53 @@ The `ColorScheme` object offers a variety of properties representing different c
 **Example Usage:**
 
 ```dart
-ElevatedButton(
-onPressed: () { /* Your button action */ }
-style: ElevatedButton.styleFrom(
-backgroundColor: Theme.of(context).colorScheme.primary,
-),
-child: Text(
-'Primary Button',
-style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
-),
-),
+class test extends StatelessWidget {
+  const test({super.key});
 
-Text(
-'Background Text',
-style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
-),
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
 
-Container(
-color: Theme.of(context).colorScheme.surface,
-child: Padding(
-padding: const EdgeInsets.all(8.0),
-child: Text(
-'Surface Text',
-style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
-),
-),
-),
+      backgroundColor: Theme.of(context).colorScheme.background,
+
+      body: Column(
+        children: [
+
+          ElevatedButton(
+            onPressed: () {/* Your button action */},
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Theme.of(context).colorScheme.primary,
+            ),
+            child: Text(
+              'Primary Button',
+              style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
+            ),
+          ),
+
+
+          Text(
+            'Background Text',
+            style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+          ),
+
+
+          Container(
+            color: Theme.of(context).colorScheme.surface,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Surface Text',
+                style:
+                TextStyle(color: Theme.of(context).colorScheme.onSurface),
+              ),
+            ),
+          ),
+
+        ],
+      ),
+    );
+  }
+}
 ```
 
 This example demonstrates how to use the `colorScheme` to style an `ElevatedButton`, a Text widget on the background, and a container showing surface color. Remember to adapt these examples to your specific UI elements and design preferences.
@@ -92,8 +113,7 @@ A simple switch to toggle between light dark & system themes.
 
 **Using ChangeThemeSwitchWidget:**
 
-
-<img src="screenshots/ThemeSwitchWidget.gif" alt="drawing" width="400"/>
+![Theme Switch Widget](screenshots/ThemeSwitchWidget.gif)
 
 ```dart
 class test extends StatelessWidget {
@@ -114,7 +134,7 @@ class test extends StatelessWidget {
 
 **Using ChangeThemeChoiceListTileWidget:**
 
-<img src="screenshots/ThemeChoiceListTileWidget.gif" alt="drawing" width="400"/>
+![Screen Record](screenshots/ThemeChoiceListTileWidget.gif)
 
 ```dart
 class test extends StatelessWidget {

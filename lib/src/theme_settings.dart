@@ -247,7 +247,7 @@ class ThemeSettingsModel with ChangeNotifier {
 /// Widget for changing the application theme.
 class ChangeThemeSwitchWidget extends StatelessWidget {
   /// EdgeInsets for padding.
-  final edgeInsets;
+  final EdgeInsets edgeInsets;
 
   /// Constructor for `ChangeThemeSwitchWidget`.
   const ChangeThemeSwitchWidget({
@@ -277,7 +277,7 @@ class ChangeThemeSwitchWidget extends StatelessWidget {
 
 class ChangeThemeChoiceListTileWidget extends StatelessWidget {
   /// EdgeInsets for padding.
-  final edgeInsets;
+  final EdgeInsets edgeInsets;
 
   /// Constructor for `ChangeThemeSwitchWidget`.
   const ChangeThemeChoiceListTileWidget({

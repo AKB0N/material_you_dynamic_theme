@@ -28,7 +28,7 @@
 #    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 name: material_you_dynamic_theme
-version: 0.0.4
+version: 0.0.5
 description: A Flutter package to dynamically change app theme based on phone wallpaper.
 repository: https://github.com/AKB0N/material_you_dynamic_theme
 
@@ -48,4 +48,5 @@ dependency_overrides:
 
 environment:
   sdk: '>=3.5.4 <4.0.0'
-  flutter: ">=3.7.0"
+  flutter: ">=3.24.5"
+

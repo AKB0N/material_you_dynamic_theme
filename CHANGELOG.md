@@ -1,3 +1,8 @@
+## 0.0.5
+* Fixes static analysis issue: "An uninitialized field should have an explicit type annotation."
+* Updated the minimum Flutter version to 3.24.5.
+* Improved README.md with clearer instructions and updated screenshots.
+
 ## 0.0.4
 * All of the package dependencies are supported in the latest version
 * Adds `ChangeNotifier` class to include parameters to change theme using through the 
