@@ -1,4 +1,7 @@
 ## 0.0.6
+* Update material_color_utilities version constraint
+
+## 0.0.6
 * Update screenshots path to use raw.githubusercontent.com.
 
 ## 0.0.5
