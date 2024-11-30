@@ -1,3 +1,6 @@
+## 0.0.6
+* Update screenshots path to use raw.githubusercontent.com.
+
 ## 0.0.5
 * Fixes static analysis issue: "An uninitialized field should have an explicit type annotation."
 * Updated the minimum Flutter version to 3.24.5.

@@ -11,7 +11,7 @@ A Flutter package that dynamically changes the app's theme based on the dominant
 
 ```yaml
 dependencies:
-  material_you_dynamic_theme: ^0.0.5
+  material_you_dynamic_theme: ^0.0.6
 ```
 
 **2. Import package:**
@@ -31,7 +31,7 @@ void main() {
 }
 ```
 
-![Screen Record](screenshots/screen.gif)
+![Screen Record](https://raw.githubusercontent.com/AKB0N/material_you_dynamic_theme/refs/heads/main/screenshots/screen.gif)
 
 ## Using the Dynamic Color Scheme
 
@@ -113,7 +113,7 @@ A simple switch to toggle between light dark & system themes.
 
 **Using ChangeThemeSwitchWidget:**
 
-![Theme Switch Widget](screenshots/ThemeSwitchWidget.gif)
+![Theme Switch Widget](https://raw.githubusercontent.com/AKB0N/material_you_dynamic_theme/refs/heads/main/screenshots/ThemeSwitchWidget.gif)
 
 ```dart
 class test extends StatelessWidget {
@@ -134,7 +134,7 @@ class test extends StatelessWidget {
 
 **Using ChangeThemeChoiceListTileWidget:**
 
-![Screen Record](screenshots/ThemeChoiceListTileWidget.gif)
+![Screen Record](https://raw.githubusercontent.com/AKB0N/material_you_dynamic_theme/refs/heads/main/screenshots/ThemeChoiceListTileWidget.gif)
 
 ```dart
 class test extends StatelessWidget {
