@@ -11,7 +11,7 @@ A Flutter package that dynamically changes the app's theme based on the dominant
 
 ```yaml
 dependencies:
-  material_you_dynamic_theme: ^0.0.7
+  material_you_dynamic_theme: ^0.0.8
 ```
 
 **2. Import package:**

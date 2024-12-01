@@ -1,4 +1,7 @@
-## 0.0.6
+## 0.0.8
+* Update material_color_utilities version constraint
+
+## 0.0.7
 * Update material_color_utilities version constraint
 
 ## 0.0.6
