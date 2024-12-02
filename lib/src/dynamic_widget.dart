@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:material_you_dynamic_theme/material_you_dynamic_theme.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 
 Future<void> runAppDynamic(
@@ -49,7 +48,6 @@ Future<void> runAppDynamic(
     bool useInheritedMediaQuery = false,
     AnimationStyle? themeAnimationStyle}) async {
   final themeSettings = await getThemeSettings();
-  final packageInfo = await PackageInfo.fromPlatform();
   final appColorScheme =
       await loadColorScheme(fallbackSeedColor: themeSettings.seedColor);
   WidgetsFlutterBinding.ensureInitialized();
@@ -58,7 +56,6 @@ Future<void> runAppDynamic(
       providers: [
         ChangeNotifierProvider<ThemeSettingsModel>.value(value: themeSettings),
         Provider<BrightnessGetColorScheme>.value(value: appColorScheme),
-        Provider<PackageInfo>.value(value: packageInfo),
       ],
       child: AppDynamic(
         home: home,
