@@ -1,5 +1,6 @@
 ## 0.0.9
-* Update material_color_utilities version constraint
+* Removed the unused package_info_plus dependency.
+* Updated version from 0.0.8 to 0.0.9.
 
 ## 0.0.8
 * Update material_color_utilities version constraint
