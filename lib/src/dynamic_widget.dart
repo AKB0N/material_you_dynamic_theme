@@ -267,7 +267,7 @@ class AppDynamic extends StatelessWidget {
               localeResolutionCallback: localeResolutionCallback,
               localizationsDelegates: localizationsDelegates,
               navigatorKey: navigatorKey,
-              navigatorObservers: [],
+              navigatorObservers: const [],
               onGenerateInitialRoutes: onGenerateInitialRoutes,
               onGenerateRoute: onGenerateRoute,
               onGenerateTitle: onGenerateTitle,

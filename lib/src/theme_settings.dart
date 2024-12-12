@@ -43,6 +43,17 @@ enum _ThemeSettingsKeys {
   seedColor,
 }
 
+int floatToInt8(double x) {
+  return (x * 255.0).round() & 0xff;
+}
+
+int value({a, r, g, b}) {
+  return floatToInt8(a) << 24 |
+      floatToInt8(r) << 16 |
+      floatToInt8(g) << 8 |
+      floatToInt8(b) << 0;
+}
+
 /// Prefix used for remembered choices keys in SharedPreferences.
 const _rememberedChoicesKeyPrefix = 'remembered.';
 
@@ -58,7 +69,12 @@ Future<ThemeSettingsModel> getThemeSettings() async {
       prefs.getString(_ThemeSettingsKeys.colorSchemeType.name) ??
           defaults.colorSchemeType.name;
   final seedColorInt = prefs.getInt(_ThemeSettingsKeys.seedColor.name) ??
-      defaults.seedColor.value;
+      value(
+        a: defaults.seedColor.a,
+        r: defaults.seedColor.r,
+        g: defaults.seedColor.g,
+        b: defaults.seedColor.b,
+      );
 
   final ThemeMode themeMode;
   switch (theme) {
@@ -121,7 +137,12 @@ Future<void> saveThemeSettings(ThemeSettingsModel themeSettings) async {
   final prefs = await SharedPreferences.getInstance();
   final theme = themeSettings.themeMode.name;
   final colorSchemeTypeString = themeSettings.colorSchemeType.name;
-  final seedColorInt = themeSettings.seedColor.value;
+  final seedColorInt = value(
+    a: themeSettings.seedColor.a,
+    r: themeSettings.seedColor.r,
+    g: themeSettings.seedColor.g,
+    b: themeSettings.seedColor.b,
+  );
 
   await prefs.setString(_ThemeSettingsKeys.theme.name, theme);
   await prefs.setString(
@@ -252,7 +273,7 @@ class ChangeThemeSwitchWidget extends StatelessWidget {
   /// Constructor for `ChangeThemeSwitchWidget`.
   const ChangeThemeSwitchWidget({
     super.key,
-    EdgeInsets this.edgeInsets = const EdgeInsets.symmetric(horizontal: 8),
+    this.edgeInsets = const EdgeInsets.symmetric(horizontal: 8),
   });
 
   @override
@@ -282,7 +303,7 @@ class ChangeThemeChoiceListTileWidget extends StatelessWidget {
   /// Constructor for `ChangeThemeSwitchWidget`.
   const ChangeThemeChoiceListTileWidget({
     super.key,
-    EdgeInsets this.edgeInsets = const EdgeInsets.symmetric(horizontal: 8),
+    this.edgeInsets = const EdgeInsets.symmetric(horizontal: 8),
   });
 
   @override
@@ -296,12 +317,12 @@ class ChangeThemeChoiceListTileWidget extends StatelessWidget {
           ThemeMode.dark => const Icon(Icons.dark_mode),
           ThemeMode.light => const Icon(Icons.light_mode),
         },
-        title: const Text("Theme"),
+        title: const Text('Theme'),
         items: ThemeMode.values,
         itemToString: (item) => switch (item) {
-          ThemeMode.system => "System",
-          ThemeMode.light => "Light",
-          ThemeMode.dark => "Dark",
+          ThemeMode.system => 'System',
+          ThemeMode.light => 'Light',
+          ThemeMode.dark => 'Dark',
         },
         index: themeSettings.themeMode.index,
         onChanged: themeSettings.setThemeMode,

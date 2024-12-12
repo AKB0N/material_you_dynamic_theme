@@ -1,3 +1,10 @@
+## 0.1.0
+* Updates Flutter SDK constraint to `>=3.27.0`.
+* Refactors theme settings to store seed color as an integer.
+* Updates DynamicWidget to use an empty list for `navigatorObservers`.
+* Adds helper functions for color conversion.
+* Fixes INFO: `deprecated_member_use` The analyzer produces this diagnostic when a deprecated library or class member is used in a different package.
+
 ## 0.0.9
 * Removed the unused package_info_plus dependency.
 * Updated version from 0.0.8 to 0.0.9.
