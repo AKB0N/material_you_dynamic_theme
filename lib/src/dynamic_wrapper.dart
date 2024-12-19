@@ -1,17 +1,20 @@
+/// A package that provides dynamic color scheme support for Flutter applications,
+/// allowing them to adapt to the user's system settings or a custom seed color.
+
 import 'package:material_you_dynamic_theme/src/dynamic_scheme.dart';
 import 'package:material_you_dynamic_theme/src/theme_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-/// A widget that provides a `BrightnessGetColorScheme` based on the current settings.
+/// A widget that provides a [BrightnessGetColorScheme] based on the current settings.
 ///
-/// This widget takes a builder function that receives a `BrightnessGetColorScheme` and builds the widget tree.
-/// It automatically selects the appropriate color scheme based on the `ThemeSettingsModel` and whether dynamic color is supported.
+/// This widget takes a builder function that receives a [BrightnessGetColorScheme] and builds the widget tree.
+/// It automatically selects the appropriate color scheme based on the [ThemeSettingsModel] and whether dynamic color is supported.
 class BrightnessGetColorSchemeBuilder extends StatelessWidget {
-  /// The builder function that receives the `BrightnessGetColorScheme` and builds the widget tree.
+  /// The builder function that receives the [BrightnessGetColorScheme] and builds the widget tree.
   final Widget Function(BrightnessGetColorScheme colorScheme) builder;
 
-  /// Creates a `BrightnessGetColorSchemeBuilder`.
+  /// Creates a [BrightnessGetColorSchemeBuilder].
   const BrightnessGetColorSchemeBuilder({
     super.key,
     required this.builder,

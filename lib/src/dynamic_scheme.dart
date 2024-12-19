@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:material_color_utilities/material_color_utilities.dart';
 
-/// Extension to convert a `DynamicScheme` to a `ColorScheme`.
+/// Extension to convert a [DynamicScheme] to a [ColorScheme].
 extension _DynamicSchemeToColorScheme on DynamicScheme {
-  /// Converts a `DynamicScheme` to a `ColorScheme`.
+  /// Converts a [DynamicScheme] to a [ColorScheme].
   ///
-  /// This method maps each color in the `DynamicScheme` to its corresponding color in the `ColorScheme`.
+  /// This method maps each color in the [DynamicScheme] to its corresponding color in the [ColorScheme].
   ///
   /// **Color Explanation:**
   ///
@@ -184,9 +184,9 @@ extension _DynamicSchemeToColorScheme on DynamicScheme {
       );
 }
 
-/// Extension to convert a `CorePalette` to a `DynamicScheme`.
+/// Extension to convert a [CorePalette] to a [DynamicScheme].
 extension _CorePaletteToDynamicScheme on CorePalette {
-  /// Converts a `CorePalette` to a `DynamicScheme`.
+  /// Converts a [CorePalette] to a [DynamicScheme].
   ///
   /// This method uses the provided `brightness` to determine the correct dynamic color scheme.
   DynamicScheme toDynamicScheme({required Brightness brightness}) =>
@@ -209,8 +209,10 @@ extension _CorePaletteToDynamicScheme on CorePalette {
 
 /// Asynchronously loads the color scheme, handling both dynamic and non-dynamic color scenarios.
 ///
-/// This function attempts to load the color scheme using the `DynamicColorPlugin`.
+/// This function attempts to load the color scheme using the [DynamicColorPlugin].
 /// If the plugin is not available or fails to load, it falls back to a static color scheme based on the provided `fallbackSeedColor`.
+///
+/// Returns a [Future] that resolves to a [BrightnessGetColorScheme].
 Future<BrightnessGetColorScheme> loadColorScheme(
     {required Color fallbackSeedColor}) async {
   try {
@@ -240,7 +242,7 @@ Future<BrightnessGetColorScheme> loadColorScheme(
   );
 }
 
-/// Class to represent a color scheme that adapts to different brightness levels.
+/// A class that represents a color scheme that can adapt to different brightness levels (light and dark modes).
 class BrightnessGetColorScheme {
   /// Color scheme for light mode.
   final ColorScheme light;
@@ -248,19 +250,19 @@ class BrightnessGetColorScheme {
   /// Color scheme for dark mode.
   final ColorScheme dark;
 
-  /// Flag indicating whether dynamic color is supported.
+  /// Indicates whether dynamic color is supported.
   final bool isDynamicColorSupported;
 
-  /// Constructor for `BrightnessGetColorScheme`.
+  /// Creates a [BrightnessGetColorScheme] with the given [light] and [dark] color schemes and [isDynamicColorSupported] flag.
   BrightnessGetColorScheme({
     required this.light,
     required this.dark,
     required this.isDynamicColorSupported,
   });
 
-  /// Creates a `BrightnessGetColorScheme` from a `CorePalette` using the workaround for Flutter 3.21+.
+  /// Creates a [BrightnessGetColorScheme] from a [CorePalette] using a workaround for Flutter 3.21+.
   ///
-  /// This constructor converts the `CorePalette` to a `DynamicScheme` for both light and dark modes and then to `ColorScheme` objects.
+  /// This constructor converts the [CorePalette] to a [DynamicScheme] for both light and dark modes and then to [ColorScheme] objects.
   BrightnessGetColorScheme.fromCorePaletteWorkaround(CorePalette palette)
       : this(
           light: palette
@@ -272,7 +274,7 @@ class BrightnessGetColorScheme {
           isDynamicColorSupported: true,
         );
 
-  /// Creates a `BrightnessGetColorScheme` from a `CorePalette`.
+  /// Creates a [BrightnessGetColorScheme] from a [CorePalette].
   ///
   /// This constructor is deprecated in favor of `fromCorePaletteWorkaround` for Flutter 3.21+.
   @Deprecated(
@@ -286,7 +288,7 @@ class BrightnessGetColorScheme {
           isDynamicColorSupported: true,
         );
 
-  /// Creates a `BrightnessGetColorScheme` from an accent color.
+  /// Creates a [BrightnessGetColorScheme] from an accent color.
   ///
   /// This constructor creates a static color scheme using the provided `accentColor` and the `isDynamicColorSupported` flag.
   BrightnessGetColorScheme.fromAccentColor(

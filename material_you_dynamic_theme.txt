@@ -27,8 +27,7 @@
 //    OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// This file serves as the main entry point for the library, exporting the public API.
-export 'src/dynamic_scheme.dart'; // Exports the DynamicScheme class and related utilities.
-export 'src/dynamic_wrapper.dart'; // Exports the runAppDynamic function for initializing the app with dynamic theming.
-export 'src/theme_settings.dart'; // Exports the ThemeSettingsModel, ColorSchemeType, and related functions for managing theme settings.
-export 'src/dynamic_widget.dart'; // Exports the BrightnessGetColorSchemeBuilder widget for accessing the dynamic color scheme.
+export 'src/dynamic_scheme.dart';
+export 'src/dynamic_wrapper.dart';
+export 'src/theme_settings.dart';
+export 'src/dynamic_widget.dart';
