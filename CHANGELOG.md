@@ -1,10 +1,5 @@
 ## 0.1.2
-- Refactor: Improve code documentation and structureThis commit refactors the codebase to improve documentation and structure:- Adds detailed documentation to all classes, methods, and properties, making the code easier to understand and maintain.
-* Refactors code to enhance readability and organization.
-* Improves code style and consistency.
-* Introduces more informative assertions for debugging purposes.
-* Provides clearer explanations of color schemes and dynamic color support.
-* Improves the usability and clarity of the theme settings and dynamic widget functionality.
+* Refactor: Remove redundant documentationRemoved redundant documentation from `dynamic_wrapper.dart` that was already present in other parts of the codebase, improving code clarity.
 
 ## 0.1.1
 - Refactor: Improve code documentation and structureThis commit refactors the codebase to improve documentation and structure:- Adds detailed documentation to all classes, methods, and properties, making the code easier to understand and maintain.
