@@ -1,6 +1,3 @@
-/// A package that provides dynamic color scheme support for Flutter applications,
-/// allowing them to adapt to the user's system settings or a custom seed color.
-
 import 'package:material_you_dynamic_theme/src/dynamic_scheme.dart';
 import 'package:material_you_dynamic_theme/src/theme_settings.dart';
 import 'package:flutter/material.dart';
